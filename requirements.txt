@@ -2,4 +2,4 @@ streamlit
 db-sqlite3
 pandas
 matplotlib
-subprocess
+subprocess.run
