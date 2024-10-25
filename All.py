@@ -4,8 +4,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 import time
-import smtplib
-from email.mime.text import MIMEText
 
 def create_connection(db_file='database.db'):
     return sqlite3.connect(db_file)
@@ -317,31 +315,6 @@ def delete_test(test_id):
     conn.commit()
     conn.close()
     
-# Function to send feedback via email
-def send_feedback(name, email, message):
-    # Email configuration
-    sender_email = "anidiptapal@gmail.com"  
-    sender_password = "XXXXXXXXXXXX"  
-    recipient_email = "poulifestory@gmail.com"
-    
-    subject = "Feedback from User"
-    body = f"Name: {name}\nEmail: {email}\nMessage: {message}"
-    
-    msg = MIMEText(body)
-    msg['Subject'] = subject
-    msg['From'] = sender_email
-    msg['To'] = recipient_email
-
-    try:
-        with smtplib.SMTP('smtp.gmail.com', 587) as server:
-            server.starttls()
-            server.login(sender_email, sender_password)
-            server.send_message(msg)
-            st.success("Feedback sent successfully!")
-    except Exception as e:
-        st.error(f"Error sending feedback: {e}")
-        
-        
 def show_overview():
     st.markdown("## Dashboard Overview")
     
