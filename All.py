@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 import time
-
+import subprocess 
 def install_requirements():
 #    try:
  #       with open('requirements.txt') as f:
