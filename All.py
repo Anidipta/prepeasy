@@ -5,6 +5,19 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import time
 
+def install_requirements():
+    try:
+        with open('requirements.txt') as f:
+            required_packages = f.read().splitlines()
+        
+        for package in required_packages:
+            try:
+                subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
+            except subprocess.CalledProcessError as e:
+                st.error(f"Failed to install package {package}: {e}")
+    except Exception as e:
+        st.error(f"Error reading requirements.txt: {e}")
+
 def create_connection(db_file='database.db'):
     return sqlite3.connect(db_file)
 
@@ -433,7 +446,7 @@ def check_credentials(conn, roll_number, password):
     return cursor.fetchone()
 
 st.set_page_config(page_title="Interactive Dashboard", layout="wide", initial_sidebar_state="expanded")
-
+install_requirements()
 conn = create_connection()
 
 if 'logged_in' not in st.session_state:
