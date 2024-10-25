@@ -1,4 +1,4 @@
 streamlit
 sqlite3
 pandas
-matplotlib==3.7.1
+matplotlib==1.16.0
