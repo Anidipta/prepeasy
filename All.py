@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 import time
-import sys
+#import sys
 import subprocess 
 def install_requirements():
     try:
