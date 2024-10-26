@@ -18,7 +18,7 @@ def install_requirements():
             except subprocess.CalledProcessError as e:
                 st.error(f"Failed to install package {package}: {e}")
     except Exception as e:
-        st.error(f"Error reading requirements.txt: {e}")
+        st.error(f"")
 
 def create_connection(db_file='database.db'):
     return sqlite3.connect(db_file)
