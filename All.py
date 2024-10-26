@@ -4,8 +4,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 import time
-#import sys
+import pytz
 import subprocess 
+
 def install_requirements():
     try:
         with open('requirements.txt') as f:
@@ -506,4 +507,4 @@ else:
     elif current_section == 'Profile':
         profiles(st.session_state.user_info)
 
-st.sidebar.markdown(f"#### Current Time: {datetime.now().strftime('%m/%d/%Y, %I:%M:%S %p')}")
+st.sidebar.markdown(f"#### Current Time: {datetime.now(pytz.timezone('Asia/Kolkata') ).strftime('%m/%d/%Y, %I:%M:%S %p')}")
