@@ -398,7 +398,7 @@ def show_overview():
     faqs = {
         "What types of tests can I prepare for on this platform?": "Our platform offers a wide variety of tests, including standardized exams, competitive exams, and subject-specific assessments.",
         "How do I access the practice tests?": "To access the practice tests, simply create an account or log in. Navigate to the 'Tests' section.",
-        "How do I take a quiz?:"Go to the 'Take a Quizzes' section and choose your subject.",
+        "How do I take a quiz?":"Go to the 'Take a Quizzes' section and choose your subject.",
         "How do I view my scores?":"After the quiz on spot results will be soon.Also you can go to the 'Score Analysis' section for overall performance",
         "Where can I download practice papers?":"Go to the 'Question Papers' section and select your subject.",
         "Can I retake a quiz?":"Yes, you can retake quizzes by revisiting the 'Quizzes' section.",
