@@ -448,7 +448,7 @@ def check_credentials(conn, roll_number, password):
     return cursor.fetchone()
 
 st.set_page_config(page_title="Interactive Dashboard", layout="wide", initial_sidebar_state="expanded")
-install_requirements()
+#install_requirements()
 conn = create_connection()
 
 if 'logged_in' not in st.session_state:
