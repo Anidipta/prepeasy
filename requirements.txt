@@ -3,3 +3,4 @@ db-sqlite3
 pandas
 matplotlib
 subprocess.run
+os-sys
