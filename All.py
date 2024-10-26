@@ -398,14 +398,15 @@ def show_overview():
     faqs = {
         "What types of tests can I prepare for on this platform?": "Our platform offers a wide variety of tests, including standardized exams, competitive exams, and subject-specific assessments.",
         "How do I access the practice tests?": "To access the practice tests, simply create an account or log in. Navigate to the 'Tests' section.",
+        "How do I take a quiz?:"Go to the 'Take a Quizzes' section and choose your subject.",
+        "How do I view my scores?":"After the quiz on spot results will be soon.Also you can go to the 'Score Analysis' section for overall performance",
+        "Where can I download practice papers?":"Go to the 'Question Papers' section and select your subject.",
+        "Can I retake a quiz?":"Yes, you can retake quizzes by revisiting the 'Quizzes' section.",
         "Is there a fee for accessing the practice materials?": "While many resources are free, some premium content may require a subscription.",
-        "How are the questions structured in the practice tests?": "Our practice tests consist of multiple-choice questions (MCQs).",
         "Can I track my progress?": "Yes! Our platform allows you to track your performance over time.",
-        "Are there any resources for exam strategies or tips?": "Absolutely! We provide various resources on effective exam strategies.",
         "How often are new tests added?": "We continuously update our database with new tests and resources.",
-        "Can I suggest new features or tests?": "We welcome feedback! Please reach out through the contact page.",
-        "What should I do if I encounter technical issues?": "Visit our support page or contact our technical support team.",
-        "How can I contact customer support?": "You can contact our customer support team via the 'Contact Us' section."
+        "What happens if I lose internet during a quiz?":"Your progress may not be saved. It’s recommended to ensure a stable connection before starting.",
+        "How can I reset my password?":"Visit the 'Profile' section and click on 'Change Rassword'  to reset your password."
     }
 
     st.markdown("### ❓ Frequently Asked Questions")
