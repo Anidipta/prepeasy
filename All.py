@@ -112,7 +112,7 @@ def show_quiz():
     if "question_index" not in st.session_state:
         st.session_state.question_index = 0
         st.session_state.user_answers = {}
-        st.session_state.start_time = time.time()  # Start timer when quiz begins
+        st.session_state.start_time = time.time()  
 
     question_index = st.session_state.question_index
     if question_index < len(questions):
@@ -150,8 +150,8 @@ def show_quiz():
 
         for idx, answer in st.session_state.user_answers.items():
             row = questions.iloc[idx]
-            correct_answer_index = int(row['c'])  # Ensure this retrieves the index of the correct answer (1-based)
-            correct_answer = row[['option_a', 'option_b', 'option_c', 'option_d']].iloc[correct_answer_index - 1]  # Adjust for 0-based indexing
+            correct_answer_index = int(row['c'])  
+            correct_answer = row[['option_a', 'option_b', 'option_c', 'option_d']].iloc[correct_answer_index - 1]  
 
             if answer == correct_answer:
                 correct_count += 1
@@ -178,9 +178,9 @@ def show_quiz():
 
         # Display a bar chart of quiz results
         st.bar_chart(chart_data.set_index('Result'))
-        # Reset session state for the next quiz
+        
         st.session_state.question_index = 0  
-        st.session_state.user_answers = {}  # Clear user answers
+        st.session_state.user_answers = {}  # Clear  answers
 
 def load_data():
     # Connect to SQLite database and load data into a DataFrame
@@ -193,11 +193,7 @@ def load_data():
 def show_score_analysis():
     st.markdown("## 📊 Score Analysis")
     st.write("Analyze your performance and scores over time.")
-
-    # Load data
     df = load_data()
-
-    # Convert `date_time` to a datetime format
     df['date_time'] = pd.to_datetime(df['date_time'])
     
     # 1. Donut Chart for Subject Distribution
@@ -214,14 +210,14 @@ def show_score_analysis():
     st.line_chart(data=correct_answers_time.set_index('date_time')['correct_answer'])
 
     # 3. Descriptive Analysis of Performance by Subject
-    st.markdown("### 3. Descriptive Analysis of Performance by Subject")
+    st.markdown("### 3.Performance by Subject")
     subject_summary = df.groupby('subject')[['correct_answer', 'missed', 'wrong']].mean().reset_index()
     for index, row in subject_summary.iterrows():
         st.write(f"- **{row['subject']}**: On average, there were {row['correct_answer']:.2f} correct answers, "
                  f"{row['missed']:.2f} missed answers, and {row['wrong']:.2f} wrong answers per test.")
 
     # 4. Bar Chart for Performance Breakdown
-    st.markdown("### 4. Overall Performance Breakdown")
+    st.markdown("### 4. Overall Performance ")
     performance_totals = df[['correct_answer', 'missed', 'wrong']].sum()
     fig2, ax2 = plt.subplots(figsize=(7, 4))
     ax2.bar(performance_totals.index, performance_totals.values, color=['#1f77b4', '#ff7f0e', '#d62728'])
@@ -359,14 +355,12 @@ def show_overview():
 
     # Data Visualization Placeholder
     st.markdown("### 📊 Performance Overview")
-    st.line_chart([1, 2, 3, 4, 5])  # Replace with actual performance data
-
+    st.line_chart([1, 2, 3, 4, 5])  
     # Display Upcoming Tests Details
     st.markdown("### 📅 Upcoming Tests Details")
-
     # Convert upcoming tests to a DataFrame for easier manipulation
     df_tests = pd.DataFrame(upcoming_tests, columns=['Subject', 'Year', 'Date'])
-    df_tests['Date'] = pd.to_datetime(df_tests['Date'])  # Ensure date is in datetime format
+    df_tests['Date'] = pd.to_datetime(df_tests['Date']) 
 
     if not df_tests.empty:
         unique_years = df_tests['Date'].dt.year.unique()
@@ -394,18 +388,19 @@ def show_overview():
             st.write("No upcoming tests for the selected year and month.")
     else:
         st.write("No upcoming tests available.")
+        
     # FAQs Section
     faqs = {
         "What types of tests can I prepare for on this platform?": "Our platform offers a wide variety of tests, including standardized exams, competitive exams, and subject-specific assessments.",
-        "How do I access the practice tests?": "To access the practice tests, simply create an account or log in. Navigate to the 'Tests' section.",
-        "How do I take a quiz?":"Go to the 'Take a Quizzes' section and choose your subject.",
+        "How do I access the practice tests?": "To access the practice tests, simply create an account or log in. Navigate to the 'Tests' section",
+        "How do I take a quiz?":"Go to the 'Take a Quizzes' section and choose your subject",
         "How do I view my scores?":"After the quiz on spot results will be soon.Also you can go to the 'Score Analysis' section for overall performance",
         "Where can I download practice papers?":"Go to the 'Question Papers' section and select your subject.",
         "Can I retake a quiz?":"Yes, you can retake quizzes by revisiting the 'Quizzes' section.",
         "Is there a fee for accessing the practice materials?": "While many resources are free, some premium content may require a subscription.",
         "Can I track my progress?": "Yes! Our platform allows you to track your performance over time.",
         "How often are new tests added?": "We continuously update our database with new tests and resources.",
-        "What happens if I lose internet during a quiz?":"Your progress may not be saved. It’s recommended to ensure a stable connection before starting.",
+        "What happens if I lose internet during a quiz?":"Your progress may not be saved. It’s recommended to ensure a stable connection before starting",
         "How can I reset my password?":"Visit the 'Profile' section and click on 'Change Rassword'  to reset your password."
     }
 
@@ -450,6 +445,7 @@ def check_credentials(conn, roll_number, password):
 
 st.set_page_config(page_title="Interactive Dashboard", layout="wide", initial_sidebar_state="expanded")
 #install_requirements()
+
 conn = create_connection()
 
 if 'logged_in' not in st.session_state:
