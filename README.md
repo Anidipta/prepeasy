@@ -33,7 +33,10 @@
 
 - **Streamlit:** For building the web interface.
 - **SQLite:** For managing databases (`database.db`, `profile.db`, `question.db`, `test.db`).
-- **Python:** Core programming language for backend logic.
+- **Pandas:** For manipulation of the dataframes data
+- **Matplotlib:** For ploting the graphs
+- **pytz:** For Indian Time
+- **datetime:** For real-time quiz taking  
 
 ## 📋 Features
 
