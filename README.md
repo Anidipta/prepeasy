@@ -15,7 +15,7 @@
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/prepeasy.git
+   git clone https://github.com/Anidipta/prepeasy.git
    cd prepeasy
    ```
 
